@@ -7,7 +7,7 @@ Docker를 사용하여 DB를 구축하는 과정이기 때문에, Docker, Docker
 
 ## docker-compose.yml 작성
 
-```yaml
+```bash
 version: "3"
 services:
 	db:
