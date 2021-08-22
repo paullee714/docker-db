@@ -1,0 +1,25 @@
+version: "3"
+services:
+  mysql-docker:
+    image: arm64v8/mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      TZ: Asia/Seoul
+      MYSQL_ROOT_PASSWORD: qwerqwer123
+      MYSQL_DATABASE: paul
+      MYSQL_USER: paul
+      MYSQL_PASSWORD: qwerqwer123
+    env_file: .mysql_env
+    volumes:
+      - /Users/wool/database-docker/mysql:/var/lib/mysql
+
+  mongo-docker:
+    image: arm64v8/mongo
+    ports:
+      - "${MONGO_PORT}:27017"
+    volumes:
+      - /Users/wool/database-docker/mongo:/data/db
+    container_name: "docker-mongodb"
+    env_file:
+      - .env
